@@ -13,7 +13,7 @@ You are producing work that must comply with the **Vancouver Coastal Health (VCH
 ## Hard rules (never break)
 
 - Ocean Blue `#0078AE` appears in every piece. At least one primary colour is required.
-- Use the **existing logo files only**: `assets/logos/official/` (print, hi-res) or `assets/logos/header-logo.svg` (web). Never recolour, redraw, stretch, add effects or rearrange the logo, and never create a new logo for a team, app or program.
+- Use the **existing logo files only**: `assets/logos/official/VCH_logo_{full-colour,white,black}.svg` (vector, any use) or the EPS/PNGs in the same folder. Never recolour, redraw, stretch, add effects or rearrange the logo, and never create a new logo for a team, app or program.
 - Logo clear space on every side = the height of the "C" in "Coastal". The logo is horizontal only.
 - Use the mountain symbol alone only with brand@vch.ca approval.
 - **Never combine Proxima Nova and Calibri** in one layout.

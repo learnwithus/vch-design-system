@@ -1,5 +1,8 @@
 # Changelog
 
+## 2026-11-19 — Vector SVG logos
+- Converted the EPS master to SVG (vector paths only) in three versions: full colour, white, black. CMYK drift was corrected to the official RGB values (#0078AE / #C1D82F).
+
 ## 2026-11-19 — Readability and agent pass
 - Rewrote README: a 60-second brand summary, an "I want to…" index, trust labels, a repo map, and known gaps.
 - Added AGENTS.md (rules, tokens and component defaults for AI agents) and CLAUDE.md (imports AGENTS.md).

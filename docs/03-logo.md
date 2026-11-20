@@ -34,13 +34,16 @@ These were found elsewhere in `~/Work/VCH`. Copies under different names in othe
 | File | What it is | Original location |
 |---|---|---|
 | `VCH_logo_master_2019.eps` | **Vector master.** Illustrator 23 EPS created 2019-04-08 (the 2019 refresh), 248×62pt, full colour. Use it for print or for exporting SVG/PDF in Illustrator. | `VCH/Assets/NEWVCHlogo.eps` |
+| `VCH_logo_full-colour.svg` | **Vector SVG** converted from the EPS master. Brand RGB `#0078AE` / `#C1D82F`. Use it for web and screens at any size. | Generated 2026-11-19 |
+| `VCH_logo_white.svg` | Vector, all white, for colour or photo backgrounds | Generated |
+| `VCH_logo_black.svg` | Vector, all black | Generated |
 | `VCH_logo_RGB_1462w.png` | Full colour, transparent, 1462×382 | `LT Site/vchdesign-craft/web/assets/VCH_logo_RGB_transparent.png` |
 | `VCH_logo_reversed-white_RGB_1462w.png` | White (reversed), transparent, 1462×382 | `…/VCH_logo_rev_RGB_transparent.png` |
 | `VCH_logo_black_K_1462w.png` | Black (K), transparent, 1462×382 | `…/VCH_logo_K_RGB_transparent.png` |
 
 `vch_logo_2025.png` (in `Act AP`) is the **same artwork** as `VCH_logo_RGB_transparent.png`. Only the filename says 2025; the logo hasn't changed.
 
-No **official SVG** master was found. The SVGs below are web exports from vch.ca and are fine for screen use.
+The SVGs were converted from the EPS with Ghostscript (EPS → PDF) and Poppler `pdftocairo` (PDF → SVG). They are pure vector paths with no embedded bitmaps, and they matched the official PNG when compared side by side. The EPS is CMYK, so the conversion shifted the colours (blue came out as about `#3276B5`); the fills were reset to the official RGB values. Prefer these SVGs over the vch.ca web SVGs below.
 
 ## Web files in this repo (`assets/logos/`)
 | File | What it is |

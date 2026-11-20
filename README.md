@@ -77,7 +77,7 @@ VCH Design System/
 ├── docs/                ← the guidance, one topic per file
 ├── tokens/              ← colours, type, spacing as CSS variables and JSON
 ├── assets/
-│   ├── logos/official/  ← master EPS + hi-res PNGs (use these)
+│   ├── logos/official/  ← vector SVGs, EPS master, hi-res PNGs (use these)
 │   ├── logos/           ← web SVGs taken from vch.ca
 │   ├── patterns/        ← wave and line textures
 │   ├── icons/           ← vch.ca SVG icon sprite
@@ -93,7 +93,6 @@ Each folder has its own short README.
 
 - **Image-only guide content:** minimum logo size, logo misuse examples, the guide's digital font tables, grid diagrams, and header/footer specs. View these on Brandfolder.
 - **Wave-pattern `.ai` files, Office templates, and the Writing Style Guide PDF:** download them from Brandfolder.
-- **An official SVG logo:** only the EPS master and PNGs exist locally.
 - **Proxima Nova font files:** the font is licensed. Use the Adobe Fonts kit or VCH's licence.
 - **Page types not yet audited:** news articles, careers, forms.
 
