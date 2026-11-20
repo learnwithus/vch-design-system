@@ -1,0 +1,232 @@
+@mixin button-primary {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
+  overflow: hidden;
+  padding: 12px 24px;
+
+  &,
+  &::before {
+    border-radius: 24px;
+  }
+}
+
+@mixin button-icon($size: 'large') {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  flex-grow: 0;
+
+  &,
+  &::before {
+    border-radius: 50%;
+  }
+
+  &[data-size='small'] {
+    width: 36px;
+    height: 36px;
+  }
+
+  &[data-size='medium'] {
+    width: 40px;
+    height: 40px;
+  }
+
+  &[data-size='semi-large'] {
+    width: 45px;
+    height: 45px;
+  }
+
+  &[data-size='large'] {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@mixin button-hover {
+  color: var(--btn-fg-hov-color);
+  border-color: var(--btn-border-hov-color);
+
+  &::before {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@mixin button-tab {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 12px;
+  padding: 10px 16px;
+  @include font-size(16px, 16px, -0.32px);
+
+  &,
+  &::before {
+    border-radius: 24px;
+  }
+
+  &[data-state='active'] {
+    font-weight: 600;
+    cursor: default;
+  }
+
+  @include bp($tablet) {
+    &[data-size='large'] {
+      padding: 15px 16px;
+
+      &[data-state='active'] {
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+// Todo: remove unnecessary styles
+@mixin button-primary--next {
+  padding: 12px 50px 12px 20px;
+    //@include icon(arrow-md-bold, 'after');
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    &:after{
+      position: absolute;
+      top: 50%;
+      right: 5px;
+      transform: translate3d(0, -44%, 0);
+      @include font-size(50px);
+      transition: transform 0.3s ease;
+    }
+
+    @include hover-focus {
+      background-color:var(--primary-color-000);
+      &:after{
+        transform: translate3d(5px, -44%, 0);
+      }
+    }
+
+    &:active {
+      background-color:var(--primary-color-300);
+      &:after{
+        transform: translate3d(5px, -44%, 0);
+      }
+    }
+}
+
+@mixin button-tertiary {
+  width: fit-content;
+  color: #000;
+  padding-bottom: 2px;
+
+  backface-visibility:hidden;
+  perspective: 1000;
+  transform-style: preserve-3d;
+
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 2px;
+  transition: background-size .3s ease, color .3s ease;
+
+  @include hover-focus {
+    background-size: 0% 2px;
+    background-position: 100% 100%;
+  }
+
+
+  [data-bg-primary-color] & {
+    @include hover-focus {
+      color:var(--primary-color-400);
+    }
+    &:active {
+      color:var(--primary-color-500);
+    }
+  }
+
+  .section--background-image & {
+    color: #fff;
+  }
+}
+
+@mixin button-tertiary--next {
+  background-size: calc(100% - 50px) 2px;
+  //@include icon(arrow-md-bold, 'after');
+  padding-right: 50px;
+
+  &:after{
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translate3d(0, -50%, 0);
+    @include font-size(50px);
+    transition: transform 0.3s ease;
+  }
+
+  @include hover-focus {
+    background-size: 0% 2px;
+    background-position: calc(100% - 50px) 100%;
+
+    &:after{
+      transform: translate3d(5px, -50%, 0);
+    }
+  }
+
+  [data-bg-primary-color] & {
+    @include hover-focus {
+      color:var(--primary-color-400);
+    }
+    &:active {
+      color:var(--primary-color-500);
+    }
+  }
+}
+
+@mixin button-tertiary-reversed {
+  width: fit-content;
+  color: #000;
+  padding-bottom: 2px;
+
+  backface-visibility:hidden;
+  perspective: 1000;
+  transform-style: preserve-3d;
+
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 100% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  transition: background-size .3s ease, color .3s ease;
+
+  @include hover-focus {
+    background-size: 100% 2px;
+    background-position: 0% 100%;
+  }
+
+
+  [data-bg-primary-color] & {
+    @include hover-focus {
+      color:var(--primary-color-400);
+    }
+    &:active {
+      color:var(--primary-color-500);
+    }
+  }
+
+  .section--background-image & {
+    color: #fff;
+  }
+}
+
+@mixin menu-links {
+  @include hover-focus {
+    //font-weight: bold;
+    text-shadow: 0 0 .01px black, 0 0 .01px black, 0 0 .01px black;
+  }
+}
+
+@mixin menu-links-active {
+  //font-weight: bold;
+  text-shadow: 0 0 .01px black, 0 0 .01px black, 0 0 .01px black;
+
+  background-size: 100% 2px;
+  background-position: 0% 100%;
+}

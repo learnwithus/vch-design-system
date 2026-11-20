@@ -1,0 +1,279 @@
+@import '../extends/typography';
+
+/*
+* RAD HELPER BUTTONS
+* Defaults buttons setup
+*/
+
+button, a, input[type=submit] {
+  --outline-color: transparent;
+
+  border: none;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  background: transparent;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: 3px solid var(--outline-color);
+}
+
+.link {
+  @extend %link;
+}
+
+.button {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  flex-shrink: 0;
+  cursor: pointer;
+  color: var(--btn-fg-color);
+  background-color: var(--btn-bg-color);
+  border: 1px solid var(--btn-border-color);
+  outline-offset: -3px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: -1px;
+    left: -1px;
+    width: calc(100% + 1px);
+    height: calc(100% + 1px);
+    background-color: var(--btn-bg-hov-color);
+    transition: transform 0.2s ease;
+
+    [dir='ltr'] & {
+      transform: translate3d(-100%, 0, 0);
+    }
+
+    [dir='rtl'] & {
+      transform: translate3d(100%, 0, 0);
+    }
+  }
+
+  &:not(:disabled):not(.disabled) {
+    @include hover {
+      @include button-hover;
+    }
+  }
+
+  &:disabled,
+  &.disabled {
+    --btn-fg-color: var(--primary-color-soft-black);
+    --btn-bg-color: #B1B1B1;
+    --btn-border-color: #B1B1B1;
+    --outline-color: transparent;
+    cursor: not-allowed;
+  }
+
+  .icon {
+    flex-shrink: 0;
+    width: 12px;
+    max-height: 12px;
+
+    &.icon--download {
+      max-height: 15px;
+    }
+
+    &.icon--external {
+      width: 18px;
+      max-height: 18px;
+    }
+
+    &.icon--crosshair {
+      max-height: 20px;
+    }
+  }
+
+  &.button-icon {
+    &[data-size='medium'] {
+      .icon--magnifier {
+        width: 15px;
+        max-height: 15px;
+      }
+    }
+  }
+
+  .icon--crosshair {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.button-primary,
+.button-secondary,
+[class*='button-icon'] {
+  --btn-fg-color: #{$white};
+  --btn-border-color: var(--btn-bg-color);
+  --btn-bg-hov-color: #{$white};
+  --btn-border-hov-color: #CCCCCC;
+
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
+
+  &:not(:disabled):not(.disabled) {
+    &:focus-visible {
+      outline: 3px solid white;
+      box-shadow: 0 0 0 3px black;
+    }
+  }
+}
+
+.button-primary,
+[class*='button-icon'] {
+  --btn-bg-color: var(--main-color);
+  --btn-fg-hov-color: var(--main-color);
+
+  &:not(:disabled):not(.disabled) {
+    &[data-variant='reversed'],
+    .section--background-color &,
+    .section--background-image &,
+    .has-background & {
+      --btn-fg-color: var(--main-color);
+      --btn-bg-color: #{$white};
+      --btn-fg-hov-color: #{$white};
+      --btn-bg-hov-color: var(--main-color);
+
+      &:focus-visible {
+        outline: 3px solid white;
+        box-shadow: 0 0 0 3px black;
+      }
+    }
+
+    .section--background-color &,
+    .section--background-image &,
+    .has-background & {
+      --btn-border-hov-color: rgba(255, 255, 255, 0.34);
+    }
+
+    &[data-variant='reversed'] {
+      --btn-border-color: #CCCCCC;
+      --btn-border-hov-color: var(--main-color);
+    }
+
+    &[data-variant='hollow'] {
+      --btn-fg-color: var(--primary-color-soft-black);
+      --btn-bg-color: transparent;
+      --btn-border-color: #CCCCCC;
+      --btn-fg-hov-color: #{$white};
+      --btn-bg-hov-color: var(--main-color);
+      --btn-border-hov-color: var(--main-color);
+
+      &:focus-visible {
+        outline: 3px solid white;
+        box-shadow: 0 0 0 3px black;
+      }
+
+      .section--background-color &,
+      .section--background-image &,
+      .has-background & {
+        --btn-fg-color: #{$white};
+        --btn-border-color: rgba(255, 255, 255, 0.34);
+        --btn-fg-hov-color: var(--main-color);
+        --btn-bg-hov-color: #{$white};
+        --btn-border-hov-color: #{$white};
+
+        &:focus-visible {
+          outline: 3px solid white;
+          box-shadow: 0 0 0 3px black;
+        }
+      }
+    }
+  }
+}
+
+.button-tab {
+  transition: color 0.3s ease, border-color 0.3s ease;
+
+  &:not([data-variant='quicklink']) {
+    white-space: nowrap;
+  }
+
+  &:focus-visible {
+    --btn-fg-color: var(--main-color);
+    outline: 3px solid black;
+  }
+
+  &[data-state='active'] {
+    --btn-border-color: var(--primary-color-soft-black);
+    --btn-fg-color: var(--primary-color-soft-black);
+    transition: color 0.3s ease, border-color 0.3s ease, outline-color 0.3s ease;
+  }
+
+  &[data-state='passive'] {
+    --btn-border-color: transparent;
+    --btn-fg-color: #707780;
+
+    @include hover {
+      --btn-fg-hov-color: var(--main-color);
+      --btn-border-hov-color: transparent;
+    }
+  }
+
+  &[data-variant='quicklink'] {
+    --btn-bg-color: transparent;
+    --btn-border-color: transparent;
+    --btn-fg-hov-color: #{$white};
+    --btn-bg-hov-color: var(--main-color);
+    --btn-border-hov-color: var(--main-color);
+
+    &:focus-visible {
+      outline: 3px solid white;
+      box-shadow: 0 0 0 3px black;
+    }
+
+    &[data-state='active'] {
+      --btn-border-color: var(--btn-fg-color);
+    }
+
+    .section--background-color &,
+    .section--background-image &,
+    .has-background & {
+      --btn-fg-color: #{$white};
+      --btn-fg-hov-color: var(--main-color);
+      --btn-bg-hov-color: #{$white};
+      --btn-border-hov-color: #{$white};
+
+      &:focus-visible {
+        outline: 3px solid white;
+        box-shadow: 0 0 0 3px black;
+      }
+    }
+  }
+}
+
+// Todo: remove unnecessary styles
+.button-primary {
+  @include button-primary;
+  &--next {
+    @include button-primary--next;
+  }
+}
+
+.button-secondary {
+  @include button-primary;
+  --btn-bg-color: var(--primary-color-rainforest-green);
+  --btn-fg-hov-color: var(--primary-color-rainforest-green);
+}
+
+.button-icon {
+  @include button-icon;
+}
+
+.button-tab {
+  @include button-tab;
+}
+
+.button-tertiary {
+  @include button-tertiary;
+
+  &--next {
+    @include button-tertiary--next;
+  }
+}
+
+.button-tertiary-reversed {
+  @include button-tertiary-reversed;
+}

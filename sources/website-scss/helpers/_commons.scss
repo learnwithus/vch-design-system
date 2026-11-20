@@ -1,0 +1,139 @@
+/*
+* RAD HELPER COMMONS
+* Defaults project common style
+*/
+
+body.block-scroll{
+  overflow: hidden;
+  height: 100vh;
+}
+.page{
+  //width: 100%;
+  position: relative;
+  min-height:300px;
+}
+
+.layout-content{
+  //  header size + menu anchors margin bottom
+  // caused by sticky elements
+  // Todo: disabled until header is developed
+  //margin-top: calc((var(--header-height) * -1));
+
+  position: relative;
+  //width: 100%;
+}
+
+
+// SETUP OF COLORS
+@each $var, $val in $primary-colors {
+  [data-bg-primary-color="#{$var}"],
+  .bg-primary-color--#{$var} {
+    background-color: var(--primary-color-#{$var});
+  }
+}
+
+@each $var, $val in $primary-colors {
+  [data-primary-color="#{$var}"],
+  .primary-color--#{$var} {
+    color: var(--primary-color-#{$var});
+  }
+}
+
+@each $var, $val in $secondary-colors {
+  [data-bg-secondary-color="#{$var}"],
+  .bg-secondary-color--#{$var} {
+    background-color: var(--secondary-color-#{$var});
+  }
+}
+
+@each $var, $val in $secondary-colors {
+  [data-secondary-color="#{$var}"],
+  .secondary-color--#{$var} {
+    color: var(--secondary-color-#{$var});
+  }
+}
+
+
+// SETUP OF GLOBAL VARS
+:root {
+  --section-margin-v: 100px;
+  @each $var, $val in $primary-colors {
+    --primary-color-#{$var}: #{$val};
+  }
+
+  @each $var, $val in $secondary-colors {
+    --secondary-color-#{$var}: #{$val};
+  }
+}
+
+// VARIOUS
+.container-bg-image {
+  background-image: var(--background);
+}
+
+.section {
+  &--background-image {
+    color: var(--secondary-color-white-50);
+    background-image: var(--background);
+    background-size: cover;
+  }
+}
+
+.no-scrollbars {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.slider-nav-hide {
+
+  @media only screen and (min-width: $tablet) {
+    display: none;
+  }
+}
+
+.slider-nav {
+  display: flex;
+  align-items: center;
+  column-gap: $sp-xs;
+
+  .button {
+    &:disabled {
+      --btn-fg-color: currentColor;
+      --btn-bg-color: transparent;
+      opacity: 0.33;
+    }
+  }
+
+  .prev {
+    .icon {
+      [dir='ltr'] & {
+        transform: scaleX(-1);
+      }
+      [dir='rtl'] & {
+        transform: scaleX(1);
+      }
+    }
+  }
+}
+
+.site-nav-pushed {
+  @include site-nav-pushed();
+}
+
+// Icons
+[dir='rtl'] {
+  .icon {
+    transform: scaleX(-1);
+  }
+}
+
+// Spacing classes (see _variables.scss)
+.mt-s {
+  margin-top: $sp-s;
+}
+
+.mt-l {
+  margin-top: $sp-l;
+}

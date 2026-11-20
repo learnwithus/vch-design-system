@@ -1,0 +1,68 @@
+/* VCH design tokens — CSS custom properties.
+   Names for brand colours match vch.ca (--primary-color-*) so snippets port both ways. */
+:root {
+  /* Primary (official) */
+  --primary-color-ocean-blue: #0078AE;
+  --primary-color-cloud-white: #FFFFFF;
+  /* Secondary (official) */
+  --primary-color-harbour-teal: #006271;
+  --primary-color-seaside-teal: #009793;
+  --primary-color-rainforest-green: #009E4E;
+  --primary-color-cyan-blue: #D4EFFC;
+  /* Accent (official) */
+  --primary-color-sunlit-green: #C1D82F;
+  --primary-color-sea-star-purple: #843275;
+  --vch-emergency-red: #FF1236;
+  --vch-cool-grey: #53585F;
+  --vch-sunshine-yellow: #FFE850;
+  --vch-sunset-orange-print: #FF3630;   /* print only */
+  /* Web-only (in vch.ca theme, not in brand guide) */
+  --primary-color-soft-black: #1E2124;
+  --primary-color-copyright-blue: #003147;
+  --primary-color-sunset-orange: #FE5C39; /* web error colour */
+  --vch-grey-border: #CCCCCC;
+  --vch-grey-table: #F2F2F2;
+  --vch-grey-input-bg: #F9FAFB;
+  --vch-grey-disabled: #B1B1B1;
+  --vch-grey-passive: #707780;
+
+  /* Semantic */
+  --main-color: var(--primary-color-ocean-blue);           /* override per theme, e.g. harbour-teal */
+  --link-color: var(--main-color);
+  --link-hover-color: #00608B; /* = sass color.scale(ocean-blue, $lightness: -20%) */
+  --text-color: var(--primary-color-soft-black);
+
+  /* Type */
+  --vch-font: 'proxima-nova', sans-serif;
+  --vch-font-indigenous: 'BC Sans', sans-serif;
+
+  /* Space */
+  --sp-xxs: 8px; --sp-xs: 16px; --sp-s: 24px; --sp-m: 32px;
+  --sp-l: 40px; --sp-xl: 80px; --sp-xxl: 120px;
+  --modules-margins: 80px;     /* gap between page modules (40px on phones for article/news/page types) */
+  --section-margin-v: 100px;   /* defined in the vch.ca theme but never used */
+
+  /* Shape & motion */
+  --radius-pill: 24px; --radius-input: 25px;
+  --radius-image: 10px;        /* images in cards/tiles */
+  --radius-card: 8px;          /* bordered link grids, dropdowns */
+  --radius-sheet: 32px;        /* content sheet top corners; 64px at >=768 */
+  --transition-default: 0.3s ease-out;
+
+  /* Layout (rad-grid). --margins is the TOTAL horizontal margin; columns
+     add half a gutter each side, so text sits 16 / 36 / 60+px in. */
+  --max-width: 1262px;
+  --gutters: 10px;
+  --margins: calc(32px - var(--gutters));
+  --container-width: calc(100% - var(--margins));
+}
+
+@media (min-width: 768px) {
+  :root { --margins: calc(72px - var(--gutters)); --radius-sheet: 64px; }
+}
+@media (min-width: 1280px) {
+  :root { --gutters: 16px; --margins: calc(120px - var(--gutters)); }
+}
+
+/* Usage: .container { width: var(--container-width); max-width: var(--max-width); margin-inline: auto; }
+          .col { padding-inline: calc(var(--gutters) / 2); } */

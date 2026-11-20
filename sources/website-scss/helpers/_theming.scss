@@ -1,0 +1,121 @@
+@use 'sass:color';
+
+:root {
+  // Global
+  --main-color: var(--primary-color-ocean-blue);
+  --link-color: var(--main-color);
+  --link-hover-color: #{color.scale(map_get($primary-colors, 'ocean-blue'), $lightness: -20%)};
+  --link-outline-color: #{rgba(map_get($primary-colors, 'ocean-blue'), 0.34)};
+  --quote-color: var(--main-color);
+}
+
+// Backgrounds and buttons
+.section--background-color,
+.has-background {
+  --link-color: #{$white};
+  --link-hover-color: #{$white};
+  --link-outline-color: #{rgba($white, 0.34)};
+  --quote-color: var(--primary-color-cloud-white);
+  color: var(--primary-color-cloud-white);
+}
+
+.section--background-color {
+  background-color: var(--main-color);
+}
+
+.section--no-background-color,
+.has-no-background {
+  --link-color: var(--main-color);
+  --link-hover-color: #{color.scale(map_get($primary-colors, 'ocean-blue'), $lightness: -20%)};
+  --link-outline-color: #{rgba(map_get($primary-colors, 'ocean-blue'), 0.34)};
+
+  background-color: $white;
+  color: var(--primary-color-soft-black);
+}
+
+// Forms
+form {
+  *:not(button):not(submit):focus-visible {
+    outline: 3px solid white;
+    box-shadow: 0 0 0 6px black;
+  }
+}
+
+.form-item {
+  input[type='text'],
+  input[type='email'],
+  input[type='password'],
+  input[type='tel'],
+  input[type='search'],
+  textarea
+  {
+    &:focus-visible {
+      outline: 3px solid white;
+      box-shadow: 0 0 0 6px black;
+    }
+  }
+}
+
+[data-theme='harbour-teal'] {
+  // Global
+  --main-color: var(--primary-color-harbour-teal);
+  --link-hover-color: #{color.scale(map_get($primary-colors, 'harbour-teal'), $lightness: -20%)};
+  --link-outline-color: #{rgba(map_get($primary-colors, 'harbour-teal'), 0.34)};
+
+  .section--no-background-color,
+  .has-no-background {
+    --link-hover-color: #{color.scale(map_get($primary-colors, 'harbour-teal'), $lightness: -20%)};
+  }
+
+  .button-primary,
+  [class*='button-icon'] {
+    &:not(:disabled):not(.disabled) {
+      &[data-variant='reversed'],
+      .section--background-color &,
+      .section--background-image &,
+      &[data-variant='hollow'] {
+        &:focus-visible {
+          outline: 3px solid white;
+          box-shadow: 0 0 0 6px black;
+        }
+      }
+    }
+  }
+
+  .button-tab {
+    &:focus-visible {
+      outline: 3px solid white;
+      box-shadow: 0 0 0 6px black;
+    }
+
+    &[data-state='active'] {
+      &:focus-visible {
+        outline: 3px solid white;
+        box-shadow: 0 0 0 6px black;
+      }
+    }
+  }
+
+  // Forms
+  form {
+    *:not(button):not(submit):focus-visible {
+      outline: 3px solid white;
+      box-shadow: 0 0 0 6px black;
+    }
+  }
+
+  .form-item {
+    input[type='text'],
+    input[type='email'],
+    input[type='password'],
+    input[type='tel'],
+    input[type='search'],
+    textarea
+    {
+      &:focus-visible {
+        outline: 3px solid white;
+        box-shadow: 0 0 0 6px black;
+      }
+    }
+  }
+}

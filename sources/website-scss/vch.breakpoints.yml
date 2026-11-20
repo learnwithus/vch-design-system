@@ -1,0 +1,22 @@
+vch.global:
+  label: global
+  mediaQuery: ''
+  weight: 0
+vch.mobile:
+  label: mobile
+  mediaQuery: 'screen and (max-width: 600px)'
+  weight: 1
+vch.retina:
+  label: retina
+  mediaQuery: 'screen and (min-width: 769px) and (-webkit-min-device-pixel-ratio: 2),
+    screen and (min-width: 769px) and (min--moz-device-pixel-ratio: 2),
+    screen and (min-width: 769px) and (-moz-min-device-pixel-ratio: 2),
+    screen and (min-width: 769px) and (-o-min-device-pixel-ratio: 2/1),
+    screen and (min-width: 769px) and (min-device-pixel-ratio: 2),
+    screen and (min-width: 769px) and (min-resolution: 192dpi),
+    screen and (min-width: 769px) and (min-resolution: 2dppx)'
+  weight: 2
+vch.large:
+  label: large
+  mediaQuery: 'screen and (min-width: 1440px)'
+  weight: 3

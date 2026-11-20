@@ -1,0 +1,304 @@
+@use "sass:math";
+
+/*
+* RAD HELPER MIXINS
+* Defaults mixins setup
+*/
+
+// Responsive mixin (legacy)
+@mixin responsive($min, $max: 0) {
+  @if $max != 0 {
+    @media only screen and (min-width: $min) and (max-width: #{$max - 1px}) {
+      @content;
+    }
+  } @else {
+    @media only screen and (min-width: $min) {
+      @content;
+    }
+  }
+}
+
+// Breakpoint mixin, more flexible, should be used instead of responsive mixin
+@mixin bp($min: null, $max: null) {
+  @if $min != null {
+    @if $max != null {
+      @media only screen and (min-width: $min) and (max-width: $max) {
+        @content;
+      }
+    }
+    @else {
+      @media only screen and (min-width: $min) {
+        @content;
+      }
+    }
+  } @else {
+    @media only screen and (max-width: $max) {
+      @content;
+    }
+  }
+}
+
+// Font face mixin for local fonts
+@mixin font-face($family, $file, $weight : normal, $style : normal) {
+  font-family: $family;
+  src:  url(#{$file}.woff2) format('woff2'),
+        url(#{$file}.woff) format('woff');
+  font-style: $style;
+  font-weight: $weight;
+  text-rendering: optimizeLegibility;
+}
+
+@mixin font-size($fs, $lh: 999, $ls: 0) {
+  @if unitless($fs) and $fs != 0 {
+    $fsrem: math.div($fs, 10);
+    font-size: #{$fsrem}rem;
+  } @else {
+    font-size: $fs;
+  }
+
+  @if $lh != 999 {
+    @if unitless($lh) and $lh != 0 {
+      $lhrem: math.div($lh, 10);
+      line-height: #{$lhrem}rem;
+    } @else {
+      line-height: #{$lh};
+    }
+  }
+
+  @if $ls != 0 {
+    @if unitless($ls) {
+      letter-spacing: #{$ls}px;
+    } @else {
+      letter-spacing: #{$ls};
+    }
+  }
+}
+
+// Lists
+@mixin listOlElement {
+  > li {
+    position: relative;
+    z-index: 0;
+    margin-top: var(--li-m);
+
+    [dir='ltr'] & {
+      padding-left: var(--li-pl);
+      &:before {
+        left: 0;
+      }
+    }
+
+    [dir='rtl'] & {
+      padding-right: var(--li-pl);
+      &:before {
+        right: 0;
+      }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: var(--li-m);
+    }
+
+    &:before {
+      content: counters(item, ".");
+      counter-increment: item;
+      position: absolute;
+      z-index: 0;
+      top: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: var(--bef-s);
+      height: var(--bef-s);
+      padding-left: var(--bef-p);
+      padding-right: var(--bef-p);
+      font-size: var(--bef-fs);
+      border: 1px solid #CCCCCC;
+      border-radius: var(--bef-fs);
+    }
+  }
+}
+
+@mixin listOl {
+  counter-reset: item;
+  --li-pl: 36px; // before width + margin right
+  --li-m: 15px;
+  --bef-s: 24px;
+  --bef-p: 3px;
+  --bef-fs: 14px;
+  --bef-br: 12px; // half of size
+
+  @include listOlElement;
+}
+
+@mixin listUlElement {
+  > li {
+    position: relative;
+    z-index: 0;
+    margin-top: var(--li-m);
+
+    [dir='ltr'] & {
+      padding-left: var(--li-pl);
+      &:before {
+        left: 0;
+      }
+    }
+
+    [dir='rtl'] & {
+      padding-right: var(--li-pl);
+      &:before {
+        right: 0;
+      }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: var(--li-m);
+    }
+
+  }
+}
+
+@mixin listUl {
+  --li-m: 10px;
+  --bef-w: 13px;
+  --bef-h: 1px;
+  --bef-t: 11px;
+  list-style-type: disc;
+  margin-left: 20px;
+
+  @include listUlElement;
+}
+
+// Tables
+@mixin table {
+  @include font-size(14px, 16px, -0.28px);
+
+  th, td {
+    padding: $sp-xs;
+    border-bottom: 1px solid #F2F2F2;
+    border-right: 1px solid #F2F2F2;
+  }
+
+  th {
+    font-weight: 500;
+  }
+
+  tbody,
+  thead {
+    th {
+      background-color: #F2F2F2;
+      border-bottom-color: $white;
+    }
+  }
+}
+
+@mixin hover {
+	@media (hover: hover) {
+		&:hover {
+			@content;
+		}
+	}
+}
+
+@mixin hover-focus {
+	@include hover {
+		@content;
+	}
+	&:focus {
+		@content;
+	}
+}
+
+// Grid resets
+@mixin reset-container {
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  width: auto;
+}
+
+@mixin reset-col {
+  padding-left: 0;
+  padding-right: 0;
+  width: auto;
+}
+
+// Tools
+@mixin site-nav-pushed($top: 0) {
+  transition: top .3s ease;
+
+  [data-nav-state='hidden'] & {
+    top: $top;
+  }
+
+  [data-nav-state='visible'] & {
+    @if $top != 0 {
+      top: calc(var(--site-nav-height, 0) + #{$top});
+    } @else {
+      top: var(--site-nav-height, $top);
+    }
+  }
+}
+
+// Background color selector
+@mixin background-color-selector {
+
+  &[data-bg-color='copyright-blue'] {
+    --bg-color: var(--primary-color-copyright-blue);
+    --bg-image:  url('/themes/custom/vch/images/lines.png');
+  }
+
+  &[data-bg-color='cyan-blue'] {
+    --bg-color: var(--primary-color-cyan-blue);
+    --bg-image: none;
+  }
+
+  &[data-bg-color='harbour-teal'] {
+    --bg-color: var(--primary-color-harbour-teal);
+    --bg-image:  url('/themes/custom/vch/images/harbour-teal-wave.png');
+  }
+
+  &[data-bg-color='ocean-blue'] {
+    --bg-color: var(--primary-color-ocean-blue);
+    --bg-image:  url('/themes/custom/vch/images/lines.png');
+  }
+
+  &[data-bg-color='rainforest-green'] {
+    --bg-color: var(--primary-color-rainforest-green);
+    --bg-image:  url('/themes/custom/vch/images/rainforest-green-wave.png');
+  }
+
+  &[data-bg-color='sea-star-purple'] {
+    --bg-color: var(--primary-color-sea-star-purple);
+    --bg-image:  url('/themes/custom/vch/images/seastar-purple-wave.png');
+  }
+
+  &[data-bg-color='seaside-teal'] {
+    --bg-color: var(--primary-color-seaside-teal);
+    --bg-image:  url('/themes/custom/vch/images/seaside-teal-wave.png');
+  }
+
+  &[data-bg-color='sunlit-green'] {
+    --bg-color: var(--primary-color-sunlit-green);
+    --bg-image:  url('/themes/custom/vch/images/lines.png');
+  }
+
+  &[data-bg-color='white'] {
+    --bg-color: var(--primary-color-cloud-white);
+    --bg-image: none;
+  }
+
+}
+
+// Foreground color selector
+@mixin foreground-color-selector {
+  &[data-font-color='white'] {
+    --font-color: var(--primary-color-cloud-white);
+    --link-color: var(--primary-color-cloud-white);
+  }
+
+  &[data-font-color='black'] {
+    --font-color: var(--primary-color-soft-black);
+    --link-color: var(--main-color);
+  }
+}

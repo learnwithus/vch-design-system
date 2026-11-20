@@ -1,0 +1,69 @@
+
+:root {
+  --max-width: 1262px;
+  --container-width: calc(100% - var(--margins));
+  --col-width: calc( 100% / 12  );
+
+  @include bp($large) {
+    --gutters: 1.6rem;
+    --margins: calc(12rem - var(--gutters));
+  }
+
+  @include bp($tablet, $large - 1px) {
+    --gutters: 1rem;
+    --margins: calc(7.2rem - var(--gutters));
+  }
+
+  @include bp(null, $tablet - 1px) {
+    --gutters: 1rem;
+    --margins: calc(3.2rem - var(--gutters));
+  }
+}
+
+
+// main container
+
+.container {
+  @include container;
+}
+
+.container-tb {
+  @include bp($tablet) {
+    @include container;
+  }
+}
+
+.container-slider-large {
+  @include bp(null, $large - 1px) {
+    width: auto;
+    max-width: none;
+    margin-left: calc((100% - var(--container-width)) / 2);
+    margin-right: calc((100% - var(--container-width)) / 2);
+  }
+}
+
+.container-slider-mlarge {
+  @include bp(null, $mlarge - 1px) {
+    width: auto;
+    max-width: none;
+    margin-left: calc((100% - var(--container-width)) / 2);
+    margin-right: 0;
+  }
+}
+
+// helper classes
+
+.col-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-padding {
+  @include gp;
+}
+
+.col-padding-tb {
+  @include bp($tablet) {
+    @include gp;
+  }
+}

@@ -1,0 +1,69 @@
+@use 'sass:math';
+@import '../helpers/mixins';
+@import '../helpers/mixins-typos';
+@import '../helpers/mixins-buttons';
+@import '../helpers/variables';
+@import '../helpers/grid/rad-grid.mixins';
+
+.alert-bar {
+  --gcg: #{$sp-xs};
+
+  display: flex;
+  column-gap: var(--gcg);
+  justify-content: space-between;
+  align-items: center;
+  padding: $sp-xs $sp-s;
+  @include font-size(14px, 20px, -0.28px);
+
+  &[data-show='false'] {
+    display: none;
+  }
+
+  &[data-type='notice'] {
+    background-color: var(--primary-color-sunlit-green);
+  }
+
+  &[data-type='alert'] {
+    color: #ffffff;
+    background-color: var(--primary-color-sea-star-purple);
+  }
+
+  .left {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    grid-column-gap: var(--gcg);
+  }
+
+  .text {
+    text-align: center;
+  }
+
+  .link {
+    align-items: flex-end;
+    column-gap: 3px;
+    color: currentColor;
+  }
+
+  .icon--external {
+    width: 14px;
+    height: 14px;
+    margin-bottom: 2px;
+  }
+
+  .right {
+    flex-shrink: 0;
+  }
+
+  .close,
+  .icon--cross {
+    display: block;
+  }
+
+  .icon--cross {
+    width: 15px;
+    height: 15px;
+  }
+}

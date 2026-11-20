@@ -1,0 +1,76 @@
+/*
+* RAD HELPER VARIABLES
+* Defaults project variables
+*/
+
+/*
+  COLORS
+*/
+
+$white: #ffffff;
+$black: #000000;
+
+$primary-colors: (
+  'cloud-white': $white,
+  'cyan-blue': #D4EFFC,
+  'harbour-teal': #006271,  
+  'ocean-blue': #0078AE,
+  'rainforest-green':#009E4E,
+  'soft-black': #1E2124,
+  'sunlit-green': #C1D82F,
+  'sea-star-purple': #843275,
+  'seaside-teal':#009793,
+  'sunset-orange':#FE5C39,
+  'copyright-blue': #003147
+);
+
+// Not used, only kept for legacy code
+$secondary-colors: (
+  'purple-000': #8357FF,
+  'purple-50': #C4B6ED,
+  'yellow-000': #FEDF46,
+  'yellow-50': #FFF7CD,
+  'red-000': #E64C25,
+  'red-50': #FDDDDE,
+  'green-000': #B4DDB2,
+  'green-50': #E9F3EA,
+  'grey-000': #8C8C8C,
+  'grey-100': #B1B1B1,
+  'grey-50': #CECECE,
+  'white-000': #fff,
+  'white-50': #F7F7F7,
+  'black-000': #000,
+);
+
+/*
+  FONTS
+*/
+$proxima-nova: 'proxima-nova', sans-serif;
+
+/*
+  BREAKPOINTS
+*/
+$xsmall: 375px;
+$small: 480px;
+$smedium: 600px;
+$tablet: 768px;
+$medium: 900px;
+$desktop: 1024px;
+$large: 1280px;
+$mlarge: 1366px;
+$xlarge: 1600px;
+$xxlarge: 1920px;
+$portrait: (orientation portrait);
+$landscape: (orientation landscape);
+$print: print;
+
+$transition-default: 0.3s ease-out;
+
+// SPACINGS
+$sp-xxs: 8px;
+$sp-xs: 16px;
+$sp-s: 24px;
+$sp-m: 32px;
+$sp-l: 40px;
+$sp-xl: 80px;
+$sp-xxl: 120px;

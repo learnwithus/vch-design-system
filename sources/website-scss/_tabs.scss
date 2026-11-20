@@ -1,0 +1,110 @@
+@use 'sass:math';
+
+.tabs {
+  display: flex;
+
+  &[data-orientation='horizontal'],
+  &.tabs-ori-h {
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    @include bp($tablet) {
+      .tab {
+        --m: #{$sp-xs};
+
+        &:not(:first-child) {
+          .button-tab {
+            [dir='ltr'] & {
+              margin-left: var(--m);
+            }
+            [dir='rtl'] & {
+              margin-right: var(--m);
+            }
+          }
+        }
+
+        &:not(:last-child) {
+          .button-tab {
+            [dir='ltr'] & {
+              margin-right: var(--m);
+            }
+            [dir='rtl'] & {
+              margin-left: var(--m);
+            }
+          }
+        }
+      }
+    }
+
+    @include bp(null, $tablet - 1px) {
+      --m: math.div($sp-xs, 2);
+
+      &:not([data-role]) {
+        .tab:not(:last-child) {
+          [dir='ltr'] & {
+            margin-right: var(--m);
+          }
+          [dir='rtl'] & {
+            margin-left: var(--m);
+          }
+        }
+      }
+
+      &[data-role='page'] {
+        .button-tab[data-state='passive'] {
+          padding-left: 8px;
+          padding-right: 8px;
+        }
+        .tab {
+          &:not(:first-child) {
+            .button-tab {
+              [dir='ltr'] & {
+                margin-left: var(--m);
+              }
+              [dir='rtl'] & {
+                margin-right: var(--m);
+              }
+            }
+          }
+          &:not(:last-child) {
+            .button-tab {
+              [dir='ltr'] & {
+                margin-right: var(--m);
+              }
+              [dir='rtl'] & {
+                margin-left: var(--m);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &[data-orientation='vertical'] {
+    flex-direction: column;
+    grid-row-gap: 10px;
+
+    .button-tab {
+      white-space: normal;
+    }
+  }
+}
+
+.tabs-content-wrapper {
+  overflow: hidden;
+  @include cgp;
+}
+
+.tabs-content {
+  display: flex;
+  align-items: start;
+  transition: transform 0.3s ease;
+  list-style: none;
+}
+
+.tab-content {
+  flex-grow: 0;
+  flex-shrink: 0;
+  width: 100%;
+}

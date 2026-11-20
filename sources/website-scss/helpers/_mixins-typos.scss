@@ -1,0 +1,79 @@
+@mixin font-h1 {
+  font-weight: 600;
+  @media (min-width: $tablet) {
+    @include font-size(60px, 64px, -1.8px);
+  }
+  @media (max-width: $tablet - 1px) {
+    @include font-size(40px, 44px, -1.2px);
+  }
+}
+
+@mixin font-h2 {
+  font-weight: 600;
+  @media (min-width: $tablet) {
+    @include font-size(40px, 44px, -1.2px);
+  }
+  @media (max-width: $tablet - 1px) {
+    @include font-size(32px, 36px, -0.96px);
+  }
+}
+
+@mixin font-h3 {
+  font-weight: 600;
+  @media (min-width: $tablet) {
+    @include font-size(32px, 36px, -0.96px);
+  }
+  @media (max-width: $tablet - 1px) {
+    @include font-size(24px, 32px, -0.72px);
+  }
+}
+
+@mixin font-h4 {
+  font-weight: 600;
+  @media (min-width: $tablet) {
+    @include font-size(24px, 32px, -0.72px);
+  }
+  @media (max-width: $tablet - 1px) {
+    @include font-size(18px, 24px, -0.36px);
+  }
+}
+
+@mixin font-h5 {
+  font-weight: 600;
+  @media (min-width: $tablet) {
+    @include font-size(18px, 24px, -0.36px);
+  }
+  @media (max-width: $tablet - 1px) {
+    @include font-size(16px, 20px, -0.32px);
+  }
+}
+
+@mixin font-caption {
+  @include font-size(16px, 24px, -0.32px);
+}
+
+@mixin font-media-caption {
+  @include font-size(14px, 16px, -0.28px);
+}
+
+@mixin font-body-1{
+  @include font-size(24px, 28px, -0.72px);
+}
+
+@mixin font-body-2{
+  @include font-size(18px, 24px, -0.36px);
+}
+
+@mixin font-button {
+  @include font-size(18px, 24px, -0.36px);
+}
+
+@mixin font-quote {
+  font-weight: 600;
+  @media (min-width: $tablet) {
+    @include font-size(32px, 38px, -0.96px);
+  }
+  @media (max-width: $tablet - 1px) {
+    @include font-size(24px, 28px, -0.48px);
+  }
+}

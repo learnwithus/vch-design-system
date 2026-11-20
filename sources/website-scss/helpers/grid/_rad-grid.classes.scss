@@ -1,0 +1,192 @@
+.col-1 { @include gwcp(1); }
+.col-2 { @include gwcp(2); }
+.col-3 { @include gwcp(3); }
+.col-4 { @include gwcp(4); }
+.col-5 { @include gwcp(5); }
+.col-6 { @include gwcp(6); }
+.col-7 { @include gwcp(7); }
+.col-8 { @include gwcp(8); }
+.col-9 { @include gwcp(9); }
+.col-10 { @include gwcp(10); }
+.col-11 { @include gwcp(11); }
+.col-12 { @include gwcp(12); }
+
+.col-offset-1 { @include goc(1); }
+.col-offset-2 { @include goc(2); }
+.col-offset-3 { @include goc(3); }
+.col-offset-4 { @include goc(4); }
+.col-offset-5 { @include goc(5); }
+.col-offset-6 { @include goc(6); }
+.col-offset-7 { @include goc(7); }
+.col-offset-8 { @include goc(8); }
+.col-offset-9 { @include goc(9); }
+.col-offset-10 { @include goc(10); }
+.col-offset-11 { @include goc(11); }
+.col-offset-12 { @include goc(12); }
+
+@media (min-width: $xsmall) {
+  .col-xs-1 { @include gwcp(1); }
+  .col-xs-2 { @include gwcp(2); }
+  .col-xs-3 { @include gwcp(3); }
+  .col-xs-4 { @include gwcp(4); }
+  .col-xs-5 { @include gwcp(5); }
+  .col-xs-6 { @include gwcp(6); }
+  .col-xs-7 { @include gwcp(7); }
+  .col-xs-8 { @include gwcp(8); }
+  .col-xs-9 { @include gwcp(9); }
+  .col-xs-10 { @include gwcp(10); }
+  .col-xs-11 { @include gwcp(11); }
+  .col-xs-12 { @include gwcp(12); }
+
+  .col-xs-offset-1 { @include goc(1); }
+  .col-xs-offset-2 { @include goc(2); }
+  .col-xs-offset-3 { @include goc(3); }
+  .col-xs-offset-4 { @include goc(4); }
+  .col-xs-offset-5 { @include goc(5); }
+  .col-xs-offset-6 { @include goc(6); }
+  .col-xs-offset-7 { @include goc(7); }
+  .col-xs-offset-8 { @include goc(8); }
+  .col-xs-offset-9 { @include goc(9); }
+  .col-xs-offset-10 { @include goc(10); }
+  .col-xs-offset-11 { @include goc(11); }
+  .col-xs-offset-12 { @include goc(12); }
+}
+@media (min-width: $small) {
+  .col-sm-1 { @include gwcp(1); }
+  .col-sm-2 { @include gwcp(2); }
+  .col-sm-3 { @include gwcp(3); }
+  .col-sm-4 { @include gwcp(4); }
+  .col-sm-5 { @include gwcp(5); }
+  .col-sm-6 { @include gwcp(6); }
+  .col-sm-7 { @include gwcp(7); }
+  .col-sm-8 { @include gwcp(8); }
+  .col-sm-9 { @include gwcp(9); }
+  .col-sm-10 { @include gwcp(10); }
+  .col-sm-11 { @include gwcp(11); }
+  .col-sm-12 { @include gwcp(12); }
+
+  .col-sm-offset-1 { @include goc(1); }
+  .col-sm-offset-2 { @include goc(2); }
+  .col-sm-offset-3 { @include goc(3); }
+  .col-sm-offset-4 { @include goc(4); }
+  .col-sm-offset-5 { @include goc(5); }
+  .col-sm-offset-6 { @include goc(6); }
+  .col-sm-offset-7 { @include goc(7); }
+  .col-sm-offset-8 { @include goc(8); }
+  .col-sm-offset-9 { @include goc(9); }
+  .col-sm-offset-10 { @include goc(10); }
+  .col-sm-offset-11 { @include goc(11); }
+  .col-sm-offset-12 { @include goc(12); }
+}
+
+@media (min-width: $smedium) {
+  .col-smd-1 { @include gwcp(1); }
+  .col-smd-2 { @include gwcp(2); }
+  .col-smd-3 { @include gwcp(3); }
+  .col-smd-4 { @include gwcp(4); }
+  .col-smd-5 { @include gwcp(5); }
+  .col-smd-6 { @include gwcp(6); }
+  .col-smd-7 { @include gwcp(7); }
+  .col-smd-8 { @include gwcp(8); }
+  .col-smd-9 { @include gwcp(9); }
+  .col-smd-10 { @include gwcp(10); }
+  .col-smd-11 { @include gwcp(11); }
+  .col-smd-12 { @include gwcp(12); }
+
+  .col-smd-offset-1 { @include goc(1); }
+  .col-smd-offset-2 { @include goc(2); }
+  .col-smd-offset-3 { @include goc(3); }
+  .col-smd-offset-4 { @include goc(4); }
+  .col-smd-offset-5 { @include goc(5); }
+  .col-smd-offset-6 { @include goc(6); }
+  .col-smd-offset-7 { @include goc(7); }
+  .col-smd-offset-8 { @include goc(8); }
+  .col-smd-offset-9 { @include goc(9); }
+  .col-smd-offset-10 { @include goc(10); }
+  .col-smd-offset-11 { @include goc(11); }
+  .col-smd-offset-12 { @include goc(12); }
+}
+
+@media (min-width: $tablet) {
+  .col-tb-1 { @include gwcp(1); }
+  .col-tb-2 { @include gwcp(2); }
+  .col-tb-3 { @include gwcp(3); }
+  .col-tb-4 { @include gwcp(4); }
+  .col-tb-5 { @include gwcp(5); }
+  .col-tb-6 { @include gwcp(6); }
+  .col-tb-7 { @include gwcp(7); }
+  .col-tb-8 { @include gwcp(8); }
+  .col-tb-9 { @include gwcp(9); }
+  .col-tb-10 { @include gwcp(10); }
+  .col-tb-11 { @include gwcp(11); }
+  .col-tb-12 { @include gwcp(12); }
+
+  .col-tb-offset-1 { @include goc(1); }
+  .col-tb-offset-2 { @include goc(2); }
+  .col-tb-offset-3 { @include goc(3); }
+  .col-tb-offset-4 { @include goc(4); }
+  .col-tb-offset-5 { @include goc(5); }
+  .col-tb-offset-6 { @include goc(6); }
+  .col-tb-offset-7 { @include goc(7); }
+  .col-tb-offset-8 { @include goc(8); }
+  .col-tb-offset-9 { @include goc(9); }
+  .col-tb-offset-10 { @include goc(10); }
+  .col-tb-offset-11 { @include goc(11); }
+  .col-tb-offset-12 { @include goc(12); }
+}
+
+@media (min-width: $medium) {
+  .col-md-1 { @include gwcp(1); }
+  .col-md-2 { @include gwcp(2); }
+  .col-md-3 { @include gwcp(3); }
+  .col-md-4 { @include gwcp(4); }
+  .col-md-5 { @include gwcp(5); }
+  .col-md-6 { @include gwcp(6); }
+  .col-md-7 { @include gwcp(7); }
+  .col-md-8 { @include gwcp(8); }
+  .col-md-9 { @include gwcp(9); }
+  .col-md-10 { @include gwcp(10); }
+  .col-md-11 { @include gwcp(11); }
+  .col-md-12 { @include gwcp(12); }
+
+  .col-md-offset-1 { @include goc(1); }
+  .col-md-offset-2 { @include goc(2); }
+  .col-md-offset-3 { @include goc(3); }
+  .col-md-offset-4 { @include goc(4); }
+  .col-md-offset-5 { @include goc(5); }
+  .col-md-offset-6 { @include goc(6); }
+  .col-md-offset-7 { @include goc(7); }
+  .col-md-offset-8 { @include goc(8); }
+  .col-md-offset-9 { @include goc(9); }
+  .col-md-offset-10 { @include goc(10); }
+  .col-md-offset-11 { @include goc(11); }
+  .col-md-offset-12 { @include goc(12); }
+}
+
+@media (min-width: $large) {
+  .col-lg-1 { @include gwcp(1); }
+  .col-lg-2 { @include gwcp(2); }
+  .col-lg-3 { @include gwcp(3); }
+  .col-lg-4 { @include gwcp(4); }
+  .col-lg-5 { @include gwcp(5); }
+  .col-lg-6 { @include gwcp(6); }
+  .col-lg-7 { @include gwcp(7); }
+  .col-lg-8 { @include gwcp(8); }
+  .col-lg-9 { @include gwcp(9); }
+  .col-lg-10 { @include gwcp(10); }
+  .col-lg-11 { @include gwcp(11); }
+  .col-lg-12 { @include gwcp(12); }
+
+  .col-lg-offset-1 { @include goc(1); }
+  .col-lg-offset-2 { @include goc(2); }
+  .col-lg-offset-3 { @include goc(3); }
+  .col-lg-offset-4 { @include goc(4); }
+  .col-lg-offset-5 { @include goc(5); }
+  .col-lg-offset-6 { @include goc(6); }
+  .col-lg-offset-7 { @include goc(7); }
+  .col-lg-offset-8 { @include goc(8); }
+  .col-lg-offset-9 { @include goc(9); }
+  .col-lg-offset-10 { @include goc(10); }
+  .col-lg-offset-11 { @include goc(11); }
+  .col-lg-offset-12 { @include goc(12); }
+}

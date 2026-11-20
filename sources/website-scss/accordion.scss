@@ -1,0 +1,81 @@
+@use 'sass:math';
+@import '../helpers/mixins';
+@import '../helpers/mixins-typos';
+@import '../helpers/variables';
+@import '../helpers/grid/rad-grid.mixins';
+
+.accordion {
+  [data-size='large'] & {
+    .item-title {
+      font-size: 24px;
+    }
+  }
+
+  .item {
+    padding-bottom: var(--li-pad);
+    border-top: 1px solid #CCCCCC;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom-color 0.3s ease;
+
+    &[data-open='false'] {
+      .label--minus,
+      .icon--minus {
+        display: none;
+      }
+    }
+
+    &[data-open='true'] {
+      .button[data-invert-on-open] {
+        --btn-bg-color: #{$white};
+        --btn-fg-color: var(--primary-color-soft-black);
+        --btn-border-color: #CCCCCC;
+        
+        &:focus-visible {
+          outline: 3px solid white;
+          box-shadow: 0 0 0 6px black;
+        }
+      }
+
+      .label--plus,
+      .icon--plus {
+        display: none;
+      }
+
+      &:last-child {
+        border-bottom-color: #CCCCCC;
+      }
+    }
+  }
+
+  .item-top {
+    position: relative;
+    z-index: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: var(--li-pad);
+    padding-top: var(--li-pad);
+
+    // To always get .item-top in click event
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+  }
+
+  .item-title {
+    font-weight: 500;
+  }
+
+  .item-body {
+    display: none;
+    width: 100%;
+    padding-top: var(--b-pad);
+  }
+}

@@ -1,0 +1,75 @@
+/*
+* RAD HELPER TYPOGRAPHY
+* Defaults typography setup
+*/
+
+html {
+  font-size: 62.5%;
+  color: var(--primary-color-soft-black);
+  * {
+    color: currentColor;
+  }
+}
+
+body {
+  font-family: $proxima-nova;
+}
+
+.font-body-1{
+  @include font-body-1;
+}
+
+body, .font-body-2{
+  @include font-body-2;
+}
+
+h1, .font-h1 {
+  @include font-h1;
+}
+
+h2, .font-h2 {
+  @include font-h2;
+}
+
+h3, .font-h3 {
+  @include font-h3;
+}
+
+h4, .font-h4 {
+  @include font-h4;
+}
+
+h5, .font-h5 {
+  @include font-h5;
+}
+
+.font-quote {
+  @include font-quote;
+}
+
+.font-caption {
+  @include font-caption;
+}
+
+.button {
+  @include font-button;
+}
+
+// Todo: had to disable because of conflict with advisories
+//.node-type--customizable-content,
+//.node-type--theme,
+//.node-type--topic
+//{
+//  @media (min-width: $tablet) {
+//    .section-module {
+//      .title {
+//        @include font-h1;
+//      }
+//      .wysiwyg {
+//        .title {
+//          margin-bottom: $sp-l;
+//        }
+//      }
+//    }
+//  }
+//}

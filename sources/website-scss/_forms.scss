@@ -1,0 +1,282 @@
+/*
+* RAD HELPER FORMS
+* Defaults forms setup
+*/
+
+form {
+  *:not(button):not(submit):focus {
+    outline: solid 3px;
+    outline-offset: -3px;
+  }
+
+  .g-recaptcha {
+    margin-bottom: $sp-xs;
+  }
+}
+
+.form-item {
+  &:not(.to-selectize) {
+    position: relative;
+    z-index: 0;
+
+    input[type='text'],
+    input[type='email'],
+    input[type='password'],
+    input[type='tel'],
+    input[type='search'] {
+      min-height: 51px;
+    }
+  }
+
+  &:not(.no-mb) {
+    margin-bottom: $sp-xs;
+  }
+
+  &.has-button {
+    input[type='text'],
+    input[type='search']
+    {
+      [dir='ltr'] & {
+        padding-right: 50px;
+      }
+      [dir='rtl'] & {
+        padding-left: 50px;
+      }
+    }
+
+    .button:not(:disabled):not(.disabled) {
+      --btn-fg-color: #{$white};
+      --btn-bg-color: var(--main-color);
+      --btn-fg-hov-color: var(--main-color);
+      --btn-bg-hov-color: #{$white};
+      &:focus-visible {
+        outline: 3px solid white;
+        box-shadow: 0 0 0 6px black;
+      }
+    }
+  }
+
+  &.has-icon {
+    input[type='text'],
+    input[type='search'] {
+      [dir='ltr'] & {
+        padding-left: 42px;
+      }
+      [dir='rtl'] & {
+        padding-right: 42px;
+      }
+    }
+  }
+
+  &.has-inline-els {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    input {
+      width: auto;
+    }
+  }
+
+  label:not(.option) {
+    display: block;
+    @include font-size(13px, 16px, -0.26px);
+    margin-bottom: 10px;
+  }
+
+  > .icon,
+  > .button-icon {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  > .icon {
+    max-width: 17px;
+    max-height: 21px;
+    color: #53585F;
+
+    [dir='ltr'] & {
+      left: 15px;
+    }
+
+    [dir='rtl'] & {
+      right: 15px;
+    }
+  }
+
+  > .button-icon {
+    [dir='ltr'] & {
+      right: 5px;
+    }
+
+    [dir='rtl'] & {
+      left: 5px;
+    }
+  }
+
+  // Common
+  input[type='text'],
+  input[type='email'],
+  input[type='password'],
+  input[type='tel'],
+  input[type='search'],
+  textarea,
+  select
+  {
+    display: block;
+    width: 100%;
+    padding: 12px 24px;
+    color: map_get($primary-colors, 'soft-black');
+    background-color: #F9FAFB;
+    border-radius: 25px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    @include font-size(16px, 19px, -0.32px);
+
+    &::placeholder {
+      color: #53585F;
+    }
+
+    &.parsley-error {
+      border-color: var(--primary-color-sunset-orange);
+      box-shadow: inset 0 0 0 2px var(--primary-color-sunset-orange);
+    }
+
+    &.parsley-success:not(:focus) {
+      border-color: currentColor;
+    }
+  }
+
+  // Textarea
+  textarea {
+    &[class*='resize'] {
+      border-bottom-right-radius: 0;
+    }
+
+    &:not([class*='resize']) {
+      resize: none;
+    }
+  }
+
+  // Selects
+  &.form-type-select {
+    &::after {
+      content: " ";
+      display: block;
+      position: absolute;
+      bottom: 19px;
+      right: 15px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 5px 5px 0 5px;
+      border-color: #808080 transparent transparent transparent;
+    }
+  }
+
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+  }
+
+  // Remove select IE arrow
+  select::-ms-expand {
+    display: none;
+  }
+
+  // Checkboxes and Radios
+  &.form-type-checkbox,
+  &.form-type-radio {
+    display: flex;
+    align-items: center;
+    column-gap: $sp-xxs;
+
+    input,
+    label {
+      cursor: pointer;
+    }
+
+    label {
+      @include font-caption;
+    }
+  }
+
+  input[type='checkbox'],
+  input[type='radio'] {
+    width: 24px;
+    height: 24px;
+    accent-color: var(--main-color);
+  }
+
+  input[type='radio'] {
+    border-radius: 50%;
+  }
+}
+
+// Various
+input[type='search'] {
+  box-sizing: border-box;
+}
+
+// Required fields
+.webform-required {
+  width: 100%;
+  @include font-caption;
+  margin-bottom: $sp-xs;
+}
+
+.form-required {
+  &::after {
+    color: var(--primary-color-sunset-orange);
+    content: '*';
+    margin-left: 3px;
+    margin-right: 3px;
+  }
+}
+
+// Errors
+.parsley-errors-list.filled,
+.form-error:not(:empty) {
+  position: relative;
+  z-index: 0;
+  @include font-size(14px, 16px, -0.28px);
+  padding-left: 21px;
+  margin-top: 10px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 0;
+    width: 13px;
+    height: 13px;
+    background-image: url(~assets/icons/warning.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+.form-error:not(:empty) {
+  white-space: pre;
+}
+
+// Webform confirmation page
+.webform-confirmation-wrapper {
+  margin-top: $sp-l;
+}
+
+// Webform module (paragraph)
+.section-module {
+  &.webform,
+  .webform {
+    h2.title {
+      margin-bottom: $sp-l;
+    }
+  }
+}
+
+.captcha.captcha-type-challenge--recaptcha {
+  margin-top: 2rem;
+}

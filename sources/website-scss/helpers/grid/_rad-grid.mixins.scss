@@ -1,0 +1,87 @@
+/* A handful of mixins */
+
+// Container
+@mixin container {
+  width: var(--container-width);
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Grid cols padding
+@mixin gp {
+  padding-left: calc(var(--gutters) * 0.5);
+  padding-right: calc(var(--gutters) * 0.5);
+}
+
+// Compensate cols padding
+@mixin cgp {
+  margin-left: calc(var(--gutters) * -0.5);
+  margin-right: calc(var(--gutters) * -0.5);
+}
+
+// Compensate container margins
+@mixin cgm {
+  margin-left: calc(var(--margins) * -0.5);
+  margin-right: calc(var(--margins) * -0.5);
+}
+
+// Grid Width Cols
+@function gwc($number-of-columns) {
+  @return calc(var(--col-width) * #{$number-of-columns} );
+}
+
+// Grid Width Cols With Padding
+@mixin gwcp($number-of-columns) {
+  @include gp;
+  width: gwc($number-of-columns);
+}
+
+// Grid offset
+@function go($number-of-columns) {
+  @return calc(var(--col-width) * #{$number-of-columns});
+}
+
+// Grid Offset Cols
+@mixin goc($number-of-columns) {
+  [dir='ltr'] & {
+    margin-left: go($number-of-columns);
+  }
+
+  [dir='rtl'] & {
+    margin-right: go($number-of-columns);
+  }
+}
+
+/* A bunch of variables to set widths */
+
+$col-half: gwc(6);
+$col-third: gwc(4);
+$col-quarter: gwc(3);
+
+$col-1: gwc(1);
+$col-2: gwc(2);
+$col-3: gwc(3);
+$col-4: gwc(4);
+$col-5: gwc(5);
+$col-6: gwc(6);
+$col-7: gwc(7);
+$col-8: gwc(8);
+$col-9: gwc(9);
+$col-10: gwc(10);
+$col-11: gwc(11);
+$col-12: gwc(12);
+
+
+$col-offset-1: go(1);
+$col-offset-2: go(2);
+$col-offset-3: go(3);
+$col-offset-4: go(4);
+$col-offset-5: go(5);
+$col-offset-6: go(6);
+$col-offset-7: go(7);
+$col-offset-8: go(8);
+$col-offset-9: go(9);
+$col-offset-10: go(10);
+$col-offset-11: go(11);
+$col-offset-12: go(12);
